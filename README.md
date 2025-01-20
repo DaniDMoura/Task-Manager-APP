@@ -1,6 +1,6 @@
 # Task Tracker
 
-A simple desktop application for managing tasks built with Python and tkinter.
+A desktop application for managing tasks built with Python and tkinter.
 
 ## Features
 
