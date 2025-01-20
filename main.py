@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import filedialog
 from tkinter.ttk import *
+from tkinter import messagebox
 import os
 
 saves_dir = "Saves"
@@ -13,6 +14,7 @@ def add():
         print('Error')
     else:
         show_tasks.insert(show_tasks.size(),new)
+    entry.delete(0,END)
 
             
 
@@ -21,7 +23,8 @@ def delete():
         show_tasks.delete(index)
 
 def delete_all():
-    show_tasks.delete(0, END)
+    if messagebox. askyesno( title='Delete All' , message='Do you want to proceed?'):
+        show_tasks.delete(0, END)
 
 def save():
     file = filedialog.asksaveasfilename(initialdir=saves_dir,
@@ -53,9 +56,12 @@ window = Tk()
 icon = PhotoImage(file="Icon/task-management-8.png")
 window.iconphoto(True, icon)
 window.title("Task Tracker")
-window.geometry("270x300")
+window.geometry("275x320")
 window.resizable(False, False)
+window.config(bg="#E0E0E0")
 
+style = Style()
+style.theme_use("clam")
 
 entry = Entry(window,width=45)
 
