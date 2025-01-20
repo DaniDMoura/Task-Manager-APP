@@ -38,3 +38,18 @@ project/
 ---
 
 The application window is fixed at 270x300 pixels and includes a custom icon for easy identification.
+
+## Skills Demonstrated
+
+- **GUI Development**: Created a user-friendly interface using Python's tkinter library
+- **Event Handling**: Implemented button click events and user interactions
+- **File Operations**: Managed file I/O for saving and loading tasks
+- **Error Handling**: Implemented try-catch blocks for robust file operations
+- **Directory Management**: Created and managed application directories
+- **Layout Design**: Utilized grid system for organized widget placement
+- **Input Validation**: Basic validation for empty task entries
+- **List Management**: Dynamic addition and removal of items from a listbox
+
+## License
+
+[MIT](https://opensource.org/licenses/MIT)
