@@ -37,7 +37,7 @@ project/
 
 ---
 
-The application window is fixed at 270x300 pixels and includes a custom icon for easy identification.
+The application window is fixed at 275x320 pixels and includes a custom icon for easy identification.
 
 ## Skills Demonstrated
 
