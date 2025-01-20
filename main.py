@@ -1,22 +1,65 @@
 from tkinter import *
-from tkinter import filedialog
 from tkinter.ttk import *
+from tkinter import filedialog
 from tkinter import messagebox
+from tkinter import colorchooser 
 import os
 
 saves_dir = "Saves"
 if not os.path.exists(saves_dir):
     os.makedirs(saves_dir)
-   
+
+
+
 def add():
+    #Validation
     new = entry.get()
     if new == '':
-        print('Error')
+        messagebox.showerror(title ='Error', message='Empty input, enter your task')
     else:
-        show_tasks.insert(show_tasks.size(),new)
-    entry.delete(0,END)
+        #Commands
+        def cancel(new_window):
+            new_window.destroy()
+            entry.delete(0,END)
 
+        def ok(new_window,status,new):
+            status_value = status.get()
+            if status_value == 0:
+                show_tasks.insert(END, f'{new}, Not Done')
+            elif status_value == 1:
+                show_tasks.insert(END, f'{new}, In-Progress')
+            elif status_value == 2:
+                show_tasks.insert(END, f'{new}, Done')
+            new_window.destroy()
+            entry.delete(0,END)
+
+
+        #New Window Configure
+        new_window = Toplevel()
+        new_window.title("Add Task")
+        new_window.geometry('200x220')
+        new_window.resizable(False, False)
+        
+        Label(new_window, text="Select task status:").pack(anchor=W,pady=10)
+
+        status = IntVar()
+        status.set(0)
+        status_options = ["Not Done", "In-Progress", "Done"]
+
+        for index in range(len(status_options)):
+            Radiobutton(new_window,
+                        text=status_options[index],
+                        variable=status,
+                        value=index,
+                        width = 20,
+                        command=lambda: ok(new_window,status,new),
+                        ).pack(side=TOP, pady=5)
             
+        button_frame = Frame(new_window)
+        button_frame.pack(pady=20)
+
+        button_cancel = Button(button_frame, text="Cancel", width=10,command=lambda: cancel(new_window))
+        button_cancel.pack(side=TOP, padx=5, pady=5)          
 
 def delete():
     for index in reversed(show_tasks.curselection()):
