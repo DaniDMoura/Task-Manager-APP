@@ -2,7 +2,6 @@ from tkinter import *
 from tkinter.ttk import *
 from tkinter import filedialog
 from tkinter import messagebox
-from tkinter import colorchooser 
 import os
 
 saves_dir = "Saves"
